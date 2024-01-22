@@ -4,6 +4,8 @@ A simple web application that allows users to visualize molecular structures fro
 
 This application provides an easy-to-use interface where users can input a SMILES string along with desired dimensions for the molecular image, and it generates a visual representation of the molecule.
 
+Available here: https://shoval.github.io/smiles-viewer-lite/
+
 ## Features
 
 - **URL Parameter Input**: Accepts a SMILES string as a URL parameter for quick access.
@@ -13,21 +15,24 @@ This application provides an easy-to-use interface where users can input a SMILE
 
 ## Usage
 
-To view a molecule image, add the SMILES string as a parameter in the URL like so:
+You can access the page without parameters, and a form will be presented where you can manually enter the SMILES string and image dimensions.
+
+But preferably you should provide the SMILES string directly as a parameter in the URL like so:
 `https://shoval.github.io/smiles-viewer-lite/?smiles=[SMILES-string]`
 
-Alternatively, if you access the page without parameters, a form will be presented where you can manually enter the SMILES string and image dimensions.
+**⚠️ Note**: The SMILES string must be escaped for it to work. You can use the built-in form to generate the URL if you encounter any problems.
 
-**Note**: The SMILES string must be escaped for it to work. You can use the built-in form if you encounter any problems.
+You may also provide image dimensions (in pixels) directly in the URL:
+`https://shoval.github.io/smiles-viewer-lite/?smiles=[SMILES-string]&width=300&height=200`
 
 ## Examples
 
-Below are three examples demonstrating how to use the SMILES Viewer Lite. These examples utilize short but correct SMILES strings. Click on the links to view the corresponding molecular structures:
+Below are three examples demonstrating how to use SMILES Viewer Lite:
 
 1. **Aspirin**:  
    https://shoval.github.io/smiles-viewer-lite/?smiles=CC%28%3DO%29OC1%3DCC%3DCC%3DC1C%28%3DO%29O
 
-2. **Caffeine** (with width and height):  
+2. **Caffeine** (with dimensions):  
    https://shoval.github.io/smiles-viewer-lite/?smiles=CN1C%3DNC2%3DC1C%28%3DO%29N%28C%28%3DO%29N2C%29C&width=300&height=200
 
 3. **2-Butylcyclohexanol** (simple formula - no need for escaping):  
