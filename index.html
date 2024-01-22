@@ -3,10 +3,25 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SMILES Viewer Lite</title>
 </head>
 
 <body>
-    <img id="smilesImage" />
+    <div id="smilesViewer">
+        <img id="smilesImage" />
+    </div>
+
+    <div id="inputForm" style="display: none;">
+        <form action="" method="GET">
+            <label for="smiles">SMILES:</label><br>
+            <input type="text" id="smiles" name="smiles"><br>
+            <label for="width">Width:</label><br>
+            <input type="number" id="width" name="width" value="800"><br>
+            <label for="height">Height:</label><br>
+            <input type="number" id="height" name="height" value="800"><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
 
     <script type="text/javascript" src="https://unpkg.com/smiles-drawer@2.0.1/dist/smiles-drawer.min.js"></script>
     <script>
@@ -28,8 +43,7 @@
             smilesImage.setAttribute('data-smiles-options', JSON.stringify({ width, height }));
             SmiDrawer.apply();
         } else {
-			document.write('ERROR: No SMILES string found in URL');
-            console.error('No SMILES string found in URL');
+            document.getElementById('inputForm').style.display = 'block';
         }
     </script>
 </body>
