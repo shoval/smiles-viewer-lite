@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <img id="smilesImage" />
+
+    <script type="text/javascript" src="https://unpkg.com/smiles-drawer@2.0.1/dist/smiles-drawer.min.js"></script>
+    <script>
+        // Function to get URL parameters
+        function getUrlParameter(name, defaultValue) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name) || defaultValue;
+        }
+
+        // Getting SMILES string and dimensions from URL parameters
+        const smilesString = getUrlParameter('smiles', '');
+        const width = getUrlParameter('width', '800');
+        const height = getUrlParameter('height', '800');
+
+        // Setting SMILES string and dimensions
+        if (smilesString) {
+            const smilesImage = document.getElementById('smilesImage');
+            smilesImage.setAttribute('data-smiles', smilesString);
+            smilesImage.setAttribute('data-smiles-options', JSON.stringify({ width, height }));
+            SmiDrawer.apply();
+        } else {
+			document.write('ERROR: No SMILES string found in URL');
+            console.error('No SMILES string found in URL');
+        }
+    </script>
+</body>
+</html>
